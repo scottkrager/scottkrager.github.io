@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Krager Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1714;
+            --paper: #f8f5f0;
+            --warm: #e8e2d9;
+            --accent: #c4452d;
+            --muted: #7a746b;
+            --serif: 'DM Serif Display', Georgia, serif;
+            --sans: 'Instrument Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        header {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--warm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        main {
+            flex: 1;
+            padding: 6rem 0;
+        }
+
+        .about-hero {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+
+        .about-emoji {
+            font-size: 8rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .about-emoji {
+                font-size: 6rem;
+            }
+        }
+
+        .about-intro h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-intro h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .about-intro .lead {
+            font-size: 1.25rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 50ch;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .about-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            padding-top: 0.5rem;
+        }
+
+        .about-text h2 {
+            font-family: var(--serif);
+            font-size: 1.75rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .values-section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--warm);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .value-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--warm);
+            border-radius: 12px;
+        }
+
+        .value-card h3 {
+            font-family: var(--serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 4rem 0;
+            border-top: 1px solid var(--warm);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--ink);
+        }
+
+        .footer-contact {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">Krager<span>Labs</span></a>
+                <nav class="nav-links">
+                    <a href="/">Apps</a>
+                    <a href="/about.html">About</a>
+                    <a href="/contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="about-hero">
+                <div class="about-emoji animate-in">&#x1F468;&#x200D;&#x1F4BB;</div>
+                <div class="about-intro">
+                    <h1 class="animate-in delay-1">Hi, I'm <em>Scott Krager</em></h1>
+                    <p class="lead animate-in delay-2">iOS developer based in Oregon, building apps that make everyday life a little bit easier.</p>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-label">My Story</div>
+                <div class="about-text">
+                    <h2>Building Useful Software</h2>
+                    <p>I started Krager Labs with a simple mission: create apps that genuinely help people. Not apps that chase trends or maximize engagement metrics, but tools that solve real problems and then get out of your way.</p>
+                    <p>Every app I build starts with a question: "How can technology make this easier?" Whether it's helping someone with hearing difficulties follow a conversation, or giving aspiring EMTs the study tools they need to pass their certification, the goal is always the same - make something useful.</p>
+                    <p>I believe in thoughtful design, clean interfaces, and software that respects your time and attention. No dark patterns, no unnecessary complexity, just tools that work.</p>
+                </div>
+            </div>
+
+            <div class="values-section">
+                <div class="about-content">
+                    <div class="about-label">Values</div>
+                    <div>
+                        <h2>What I Believe In</h2>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <h3>User-First Design</h3>
+                                <p>Every decision starts with the user. If a feature doesn't genuinely help someone, it doesn't ship.</p>
+                            </div>
+                            <div class="value-card">
+                                <h3>Simplicity</h3>
+                                <p>The best apps feel invisible. They solve your problem and get out of the way.</p>
+                            </div>
+                            <div class="value-card">
+                                <h3>Accessibility</h3>
+                                <p>Great software should work for everyone. Accessibility isn't an afterthought.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">Krager Labs</div>
+                <div class="footer-links">
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="footer-contact">Portland, Oregon</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

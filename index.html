@@ -73,17 +73,28 @@
             font-family: var(--serif);
             font-size: 1.5rem;
             letter-spacing: -0.02em;
+            text-decoration: none;
+            color: inherit;
         }
 
         .logo span {
             color: var(--accent);
         }
 
-        .location {
-            font-size: 0.8rem;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
             color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
         }
 
         /* Hero */
@@ -389,14 +400,391 @@
         .delay-2 { animation-delay: 0.2s; opacity: 0; }
         .delay-3 { animation-delay: 0.3s; opacity: 0; }
         .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        /* Featured Hearing Buddy Section */
+        .featured-section {
+            padding: 6rem 0;
+            background: var(--ink);
+            color: var(--paper);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .featured-content {
+            max-width: 480px;
+        }
+
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #93c5fd;
+            margin-bottom: 2rem;
+        }
+
+        .featured-badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .featured-title {
+            font-family: var(--serif);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-title em {
+            font-style: italic;
+            color: #60a5fa;
+        }
+
+        .featured-description {
+            font-size: 1.1rem;
+            color: rgba(248, 245, 240, 0.7);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .featured-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg {
+            width: 16px;
+            height: 16px;
+            color: #60a5fa;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: rgba(248, 245, 240, 0.85);
+            line-height: 1.4;
+        }
+
+        .featured-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .featured-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        .featured-cta svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .featured-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* iPhone Mockup */
+        .phone-showcase {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        @media (max-width: 900px) {
+            .phone-showcase {
+                order: -1;
+            }
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 580px;
+            background: #000;
+            border-radius: 50px;
+            padding: 12px;
+            position: relative;
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.1),
+                0 30px 60px rgba(0,0,0,0.5),
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 32px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-content {
+            padding: 50px 20px 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .phone-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .phone-time {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .phone-app-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 4px;
+        }
+
+        .phone-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 13px;
+            color: #4ade80;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        /* Sound Wave Visualization */
+        .sound-wave {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            height: 50px;
+            margin: 20px 0;
+        }
+
+        .wave-bar {
+            width: 4px;
+            background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 2px;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+
+        .wave-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
+        .wave-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
+        .wave-bar:nth-child(3) { height: 25px; animation-delay: 0.2s; }
+        .wave-bar:nth-child(4) { height: 45px; animation-delay: 0.3s; }
+        .wave-bar:nth-child(5) { height: 30px; animation-delay: 0.4s; }
+        .wave-bar:nth-child(6) { height: 50px; animation-delay: 0.5s; }
+        .wave-bar:nth-child(7) { height: 35px; animation-delay: 0.6s; }
+        .wave-bar:nth-child(8) { height: 45px; animation-delay: 0.7s; }
+        .wave-bar:nth-child(9) { height: 25px; animation-delay: 0.8s; }
+        .wave-bar:nth-child(10) { height: 40px; animation-delay: 0.9s; }
+        .wave-bar:nth-child(11) { height: 20px; animation-delay: 1s; }
+        .wave-bar:nth-child(12) { height: 30px; animation-delay: 1.1s; }
+
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
+            50% { transform: scaleY(1); opacity: 1; }
+        }
+
+        /* Transcription Bubbles */
+        .transcription-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .transcript-bubble {
+            background: rgba(255,255,255,0.1);
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .transcript-bubble:nth-child(1) { animation-delay: 0.3s; }
+        .transcript-bubble:nth-child(2) { animation-delay: 0.8s; }
+        .transcript-bubble:nth-child(3) { animation-delay: 1.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .transcript-bubble.current {
+            background: rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 50%;
+            animation: typing 1.4s ease-in-out infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            right: -50px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            bottom: -30px;
+            left: -30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-inner">
-                <div class="logo">Krager<span>Labs</span></div>
-                <div class="location">Portland, Oregon</div>
+                <a href="/" class="logo">Krager<span>Labs</span></a>
+                <nav class="nav-links">
+                    <a href="/">Apps</a>
+                    <a href="/about.html">About</a>
+                    <a href="/contact.html">Contact</a>
+                </nav>
             </div>
         </div>
     </header>
@@ -410,11 +798,88 @@
             </div>
         </section>
 
+        <!-- Featured Hearing Buddy Section -->
+        <section class="featured-section">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="container">
+                <div class="featured-grid">
+                    <div class="featured-content">
+                        <div class="featured-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            Featured App
+                        </div>
+                        <h2 class="featured-title">Live Transcription for <em>Better</em> Communication</h2>
+                        <p class="featured-description">Hearing Buddy transforms speech into text in real-time, helping those with hearing difficulties stay connected to every conversation.</p>
+
+                        <div class="featured-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                    </svg>
+                                </div>
+                                <span class="feature-text">Real-time speech-to-text</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                                        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                                        <circle cx="12" cy="20" r="1"/>
+                                    </svg>
+                                </div>
+                                <span class="feature-text">Works offline</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4M12 8h.01"/>
+                                    </svg>
+                                </div>
+                                <span class="feature-text">Accessibility-first design</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <path d="M9 9h6v6H9z"/>
+                                    </svg>
+                                </div>
+                                <span class="feature-text">Simple, clean interface</span>
+                            </div>
+                        </div>
+
+                        <a href="https://hearingbuddyapp.com" class="featured-cta" target="_blank">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="phone-showcase">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-notch"></div>
+                                <img src="images/hearing-buddy-screenshot.png" alt="Hearing Buddy App Screenshot" style="width: 100%; height: 100%; object-fit: cover; border-radius: 40px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="apps-section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Featured Apps</h2>
-                    <span class="section-count">04 Projects</span>
+                    <span class="section-count">Active Apps</span>
                 </div>
                 <div class="apps-grid">
                     <a href="https://hearingbuddyapp.com" class="app-card" target="_blank">
@@ -435,11 +900,26 @@
                         <div class="app-cta">Learn More</div>
                     </a>
 
-                    <a href="https://apps.apple.com/bh/app/seo-keyword-research-tool/id1076480130" class="app-card" target="_blank">
+                    <a href="https://apps.apple.com/us/app/couples-questions-by-evermore/id6744706229" class="app-card" target="_blank">
                         <svg class="app-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M7 17L17 7M17 7H7M17 7V17"/>
                         </svg>
                         <div class="app-number">02</div>
+                        <div class="app-icon icon-couples">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <h3 class="app-name">Couples Questions</h3>
+                        <p class="app-description">Strengthen your relationship with meaningful conversation starters designed to bring partners closer together.</p>
+                        <div class="app-cta">App Store</div>
+                    </a>
+
+                    <a href="https://apps.apple.com/bh/app/seo-keyword-research-tool/id1076480130" class="app-card" target="_blank">
+                        <svg class="app-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                        <div class="app-number">03</div>
                         <div class="app-icon icon-seo">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
                                 <circle cx="11" cy="11" r="8"/>
@@ -448,21 +928,6 @@
                         </div>
                         <h3 class="app-name">SEO Keyword Research</h3>
                         <p class="app-description">Discover high-value keywords for your content strategy. Analyze search volumes and uncover ranking opportunities.</p>
-                        <div class="app-cta">App Store</div>
-                    </a>
-
-                    <a href="https://apps.apple.com/us/app/couples-questions-by-evermore/id6744706229" class="app-card" target="_blank">
-                        <svg class="app-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                        </svg>
-                        <div class="app-number">03</div>
-                        <div class="app-icon icon-couples">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
-                        </div>
-                        <h3 class="app-name">Couples Questions</h3>
-                        <p class="app-description">Strengthen your relationship with meaningful conversation starters designed to bring partners closer together.</p>
                         <div class="app-cta">App Store</div>
                     </a>
 
@@ -490,7 +955,7 @@
                     <div class="about-label">About</div>
                     <div class="about-content">
                         <h2>Hi, I'm Scott Krager</h2>
-                        <p>I'm an indie iOS developer based in Oregon, focused on building apps that genuinely help people in their daily lives. From accessibility tools to educational resources, each app starts with a simple question: how can technology make this easier?</p>
+                        <p>I'm an iOS developer based in Oregon, focused on building apps that genuinely help people in their daily lives. From accessibility tools to educational resources, each app starts with a simple question: how can technology make this easier?</p>
                         <p>Krager Labs is my small studio where ideas become polished, user-friendly applications. I believe in thoughtful design, clean interfaces, and software that respects your time and attention.</p>
                     </div>
                 </div>

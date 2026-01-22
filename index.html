@@ -1,19 +1,259 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krager Labs - iOS Apps & Web Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+        }
+
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .app-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .app-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .app-store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #007AFF;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .app-store-badge svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* App-specific colors */
+        .icon-transcribe { background: linear-gradient(135deg, #00C6FB 0%, #005BEA 100%); }
+        .icon-seo { background: linear-gradient(135deg, #F093FB 0%, #F5576C 100%); }
+        .icon-couples { background: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%); }
+        .icon-emt { background: linear-gradient(135deg, #4FACFE 0%, #00F2FE 100%); }
+
+        .projects-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .project-link {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s ease;
+        }
+
+        .project-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-link h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .project-link p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding-top: 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
 <body>
-<h1>Krager Labs</h1>
-<p>We buy and build unique websites.</p>
-<p>Made with ♥ in Oregon.</p>
-<p>scott (at) kragerlabs.com</p>
-  <p><a href="/privacy.html">Privacy Page</a></p>
-  <h2>Current Projects</h2>
-  <p><a href="https://tubesplit.com">TubeSplit</a> - Simple A/B Testing for YouTube Thumbnails.</p>
-  <p><a href="https://www.checkaflip.com/">CheckAFlip.com</a> - Find sold and current prices for Ebay items.</p>
-  <p><a href="https://fobbattery.com/">FobBattery.com</a> - How to replace and program car key fob batteries.</p>
-  <p><a href="https://portlanders.com">Portlanders</a> - Find answers to questions about Portland, OR.</p>  
-  <p><a href="https://generatorgrid.com">GeneratorGrid</a> - Find the best quiet generator. SOLD</p>
-  
-  <h2>Domains taking offers</h2>
-  <p>shortsaleagents.com</p>
+    <div class="container">
+        <header>
+            <h1>Krager Labs</h1>
+            <p>We build iOS apps and unique websites</p>
+            <p style="margin-top: 5px; font-size: 1rem;">Made with love in Oregon</p>
+        </header>
+
+        <h2 class="section-title">iOS Apps</h2>
+        <div class="apps-grid">
+            <a href="https://apps.apple.com/us/app/live-transcribe-hearing-buddy/id6747363502" class="app-card" target="_blank">
+                <div class="app-icon icon-transcribe">
+                    <span style="color: white;">&#x1F3A4;</span>
+                </div>
+                <h3>Live Transcribe - Hearing Buddy</h3>
+                <p>Real-time speech-to-text transcription to help those with hearing difficulties follow conversations with ease.</p>
+                <span class="app-store-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    View on App Store
+                </span>
+            </a>
+
+            <a href="https://apps.apple.com/bh/app/seo-keyword-research-tool/id1076480130" class="app-card" target="_blank">
+                <div class="app-icon icon-seo">
+                    <span style="color: white;">&#x1F50D;</span>
+                </div>
+                <h3>SEO Keyword Research Tool</h3>
+                <p>Discover high-value keywords for your content strategy. Analyze search volumes and find opportunities to rank.</p>
+                <span class="app-store-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    View on App Store
+                </span>
+            </a>
+
+            <a href="https://apps.apple.com/us/app/couples-questions-by-evermore/id6744706229" class="app-card" target="_blank">
+                <div class="app-icon icon-couples">
+                    <span style="color: white;">&#x2764;</span>
+                </div>
+                <h3>Couples Questions by Evermore</h3>
+                <p>Strengthen your relationship with meaningful conversation starters. Deep questions designed to bring couples closer together.</p>
+                <span class="app-store-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    View on App Store
+                </span>
+            </a>
+
+            <a href="https://apps.apple.com/us/app/nremt-emt-basic-exam-prep-2025/id1369641216" class="app-card" target="_blank">
+                <div class="app-icon icon-emt">
+                    <span style="color: white;">&#x1F691;</span>
+                </div>
+                <h3>NREMT EMT Basic Exam Prep</h3>
+                <p>Comprehensive study tool for aspiring EMTs. Practice questions and study materials to help you pass the NREMT exam.</p>
+                <span class="app-store-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                    View on App Store
+                </span>
+            </a>
+        </div>
+
+        <div class="projects-section">
+            <h2 class="section-title">Web Projects</h2>
+            <div class="projects-list">
+                <a href="https://tubesplit.com" class="project-link" target="_blank">
+                    <h4>TubeSplit</h4>
+                    <p>Simple A/B Testing for YouTube Thumbnails</p>
+                </a>
+                <a href="https://www.checkaflip.com/" class="project-link" target="_blank">
+                    <h4>CheckAFlip.com</h4>
+                    <p>Find sold and current prices for eBay items</p>
+                </a>
+                <a href="https://fobbattery.com/" class="project-link" target="_blank">
+                    <h4>FobBattery.com</h4>
+                    <p>How to replace and program car key fob batteries</p>
+                </a>
+                <a href="https://portlanders.com" class="project-link" target="_blank">
+                    <h4>Portlanders</h4>
+                    <p>Find answers to questions about Portland, OR</p>
+                </a>
+            </div>
+        </div>
+
+        <footer>
+            <p>scott (at) kragerlabs.com</p>
+            <p><a href="/privacy.html">Privacy Policy</a></p>
+        </footer>
+    </div>
 </body>
 </html>
